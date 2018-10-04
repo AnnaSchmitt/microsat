@@ -19,10 +19,26 @@
 	microsat DIMACS_FILE
 
 ### Evaluate system decisions
-    microsat --c DIMACS_FILE
+    microsat --c MODIFIED_DIMACS_FILE
 
 ### Evaluate buildability of a given configuration
-    microsat --c_sat DIMACS_FILE
+    microsat --c_sat MODIFIED_DIMACS_FILE
+
+### Modified DIMACS file
+To enable the configuration mode, the following lines has to be added to the 
+DIMACS file.
+
+	c d<NUMBER_OF_DEAD_FEATURES> v<NUMBER_OF_ASSIGNED_VARIABLES>
+	d <DIMACS_VARIABLES_OF_DEAD_FEATURES>
+	v <DIMACS_VARIABLES_OF_ASSIGNED_VARIABLES>
+	p cnf ...
+
+For example:
+
+	c d1 v4
+	d 26
+	v 5 -7 18 -20
+	p cnf ...
 
 ## Original License(s)
 ### The MIT License
